@@ -110,6 +110,10 @@ body {
     margin-top: 5%;
 }
 
+.textbody ion-icon {
+    display: flex;
+}
+
 .tire {
     font-size: 50px;
 }
@@ -191,12 +195,331 @@ body {
     right: 0;
 }
 
+.continue {
+    display: flex;
+    margin-top: 15%;
+    margin-left: 9.8%;
+    align-items: center;
+    vertical-align: middle;
+    color: rgb(0, 0, 0);
+}
+
+.card {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 9.8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 390px;
+    height: 300px;
+    border-radius: 5%;
+    background-image: url(/img/Your-Name-Banner.jpg);
+    background-color: #000;
+    background-size: 140%;
+    background-position: center;
+    background-repeat: space;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+}
+
+.violetc {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 9.8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 390px;
+    height: 300px;
+    border-radius: 5%;
+    background-image: url(/img/violetanime.jpg);
+    background-color: #000;
+    background-size: 140%;
+    background-position: center;
+    background-repeat: space;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.violetc:hover {
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: 400ms;
+}
+
+.yournamec:hover {
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: 400ms;
+}
+
+.yournamec {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 9.8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 390px;
+    height: 300px;
+    border-radius: 5%;
+    background-image: url(/img/Your-Name-Banner.jpg);
+    background-color: #000;
+    background-size: 140%;
+    background-position: center;
+    background-repeat: space;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.romantic {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 9.8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 390px;
+    height: 300px;
+    border-radius: 5%;
+    background-image: url(/img/romantic.jpg);
+    background-color: #000;
+    background-size: 300%;
+    background-position-y: -350px;
+    background-repeat: no-repeat;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.romantic:hover {
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: 400ms;
+}
+
+.comic {
+    display: flex;
+    margin-top: 2%;
+    margin-left: 9.8%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 390px;
+    height: 300px;
+    border-radius: 5%;
+    background-image: url(/img/comic.jpeg);
+    background-color: #000;
+    background-size: 140%;
+    background-position: center;
+    background-repeat: space;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+footer {
+    color: #ffffff;
+    background-color: #161616;
+    margin-top: 5%;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.column a {
+    text-decoration: none;
+}
+
+.column {
+    width: calc(100% / 3);
+}
+
+.copyright {
+    text-align: center;
+    color: #fff;
+    padding: 0.6rem 0;
+}
+
+.social-icons {
+    font-size: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.social-icons a {
+    color: white;
+    margin-left: 10%;
+}
+
+.social-icons a:hover {
+    color: rgb(132, 0, 255);
+}
+
+.social-icons li {
+    margin-right: 10px;
+}
+
+.comic:hover {
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: 400ms;
+}
+
+.textanimeh4 {
+    display: block;
+    margin-top: auto;
+    margin-left: 10px;
+    opacity: 1;
+    font-size: 15px;
+    background-color: var(--nav-color);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.textanimejanrh4 {
+    display: block;
+    margin-top: auto;
+    margin-left: 10px;
+    opacity: 1;
+    font-size: 15px;
+    background-color: var(--nav-color);
+    padding: 5px;
+    border-radius: 5px;
+    max-width: 310px;
+}
+
+.textanimeh3 {
+    display: block;
+    position: absolute;
+    bottom: auto;
+    margin-left: 10px;
+    opacity: 1;
+    font-size: 15px;
+    background-color: var(--nav-color);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.card img {
+    display: block;
+    scale: 20%;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: 8px 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: 400ms;
+}
+
+.block {
+    background: rgb(255, 255, 255);
+}
+
+.ratedanimeblock {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.icon {
+    display: inline-block;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.iconheader {
+    display: flex;
+    margin-left: 10px;
+}
+
+.ratedanime {
+    display: flex;
+    margin-top: 5%;
+    margin-left: 9.8%;
+    align-items: center;
+    vertical-align: middle;
+    color: rgb(0, 0, 0);
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+}
+
+.populargenres {
+    display: flex;
+    margin-left: 9.8%;
+    margin-top: 5%;
+    align-items: center;
+    vertical-align: middle;
+    color: rgb(0, 0, 0);
+}
+
 @media (max-width: 768px) {
+    .column {
+        margin: 0.4rem 0;
+        width: 100%;
+        justify-content: center;
+        padding: 0;
+        margin-right: 40%;
+    }
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
     .violet {
         display: none;
     }
     .line {
         max-width: 19rem;
+    }
+    .ratedanime {
+        font-size: 12px;
+    }
+    .continue {
+        font-size: 12px;
+    }
+    .card {
+        width: 316px;
+        height: 240px;
+    }
+    .yournamec {
+        width: 316px;
+        height: 240px;
+    }
+    .violetc {
+        width: 316px;
+        height: 240px;
+        margin-top: 5%;
+    }
+    .romantic {
+        width: 316px;
+        height: 240px;
+        background-size: 350%;
+    }
+    .textanimejanrh4 {
+        max-width: 290px;
+    }
+    .comic {
+        width: 316px;
+        height: 240px;
+        margin-top: 5%;
+    }
+    .populargenres {
+        font-size: 12px;
     }
 }
 
@@ -207,7 +530,7 @@ body {
     .violet {
         max-height: 510px;
     }
-    .violet img {
+    .violet:hover img {
         margin-right: 30px;
     }
 }
@@ -215,5 +538,12 @@ body {
 @media (max-width: 1280px) {
     .violet {
         display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    .ratedanimeblock {
+        display: block;
+        position: relative;
     }
 }
