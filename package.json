@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "swiper": "^10.0.4"
+    "axios": "^1.4.0",
+    "request": "^2.88.2"
   }
 }

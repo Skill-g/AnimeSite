@@ -15,3 +15,5 @@ for (var i = 0; i < violethover.length; i++) {
         }
     });
 }
+
+console.log("script.js ready")

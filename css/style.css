@@ -232,9 +232,8 @@ body {
     width: 390px;
     height: 300px;
     border-radius: 5%;
-    background-image: url(/img/violetanime.jpg);
     background-color: #000;
-    background-size: 140%;
+    background-size: 100%;
     background-position: center;
     background-repeat: space;
     color: white;
@@ -262,11 +261,10 @@ body {
     width: 390px;
     height: 300px;
     border-radius: 5%;
-    background-image: url(/img/Your-Name-Banner.jpg);
     background-color: #000;
-    background-size: 140%;
+    background-size: 100%;
     background-position: center;
-    background-repeat: space;
+    background-repeat: no-repeat;
     color: white;
     transition: 400ms;
     cursor: pointer;
