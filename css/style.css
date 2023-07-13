@@ -69,7 +69,6 @@ body {
 .search {
     font-size: 19px;
     display: flex;
-    display: flex;
     align-items: center;
     position: absolute;
     right: 0;
@@ -97,7 +96,7 @@ body {
     margin-right: 13%;
     background: var(--nav-color);
     border-radius: 10%;
-    margin-top: 70px;
+    margin-top: 15px;
     max-height: 529px;
     max-width: 345px;
     height: 20px 0px;
@@ -213,9 +212,8 @@ body {
     width: 390px;
     height: 300px;
     border-radius: 5%;
-    background-image: url(/img/Your-Name-Banner.jpg);
     background-color: #000;
-    background-size: 140%;
+    background-size: 100%;
     background-position: center;
     background-repeat: space;
     color: white;
@@ -320,7 +318,7 @@ footer {
     color: #ffffff;
     background-color: #161616;
     margin-top: 5%;
-    padding: 20px;
+    padding: 0.1px;
 }
 
 .row {
@@ -333,13 +331,19 @@ footer {
 }
 
 .column {
-    width: calc(100% / 3);
+    display: grid;
+    justify-content: center;
+    justify-self: center;
+}
+
+.row ul {
+    list-style-type: none;
+    padding-inline-start: 0;
 }
 
 .copyright {
     text-align: center;
     color: #fff;
-    padding: 0.6rem 0;
 }
 
 .social-icons {
@@ -347,11 +351,12 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
+    text-align: center;
 }
 
 .social-icons a {
     color: white;
-    margin-left: 10%;
+    margin: 10px;
 }
 
 .social-icons a:hover {
