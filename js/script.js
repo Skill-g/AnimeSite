@@ -1,4 +1,3 @@
-const search = document.getElementById('search')
 const violethoverd = document.getElementsByClassName('violetdiscription')
 const violethover = document.getElementsByClassName('violet')
 

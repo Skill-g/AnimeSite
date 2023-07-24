@@ -21,6 +21,6 @@ HTML + CSS + js + ionicons + api|consumet
 >Изображения:
 
 
-![image1](https://imgur.com/a/Ja1BjXR)
-![image2](https://imgur.com/Js4jLhY)
-![image2](https://imgur.com/d5F0vjE)
+![img1](./gitimage/image.png)
+![img2](./gitimage/image2.png)
+![img3](./gitimage/image3.png)

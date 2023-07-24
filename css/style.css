@@ -197,7 +197,7 @@ body {
 .continue {
     display: flex;
     margin-top: 15%;
-    margin-left: 9.8%;
+    margin-left: 10%;
     align-items: center;
     vertical-align: middle;
     color: rgb(0, 0, 0);
@@ -209,9 +209,27 @@ body {
     margin-left: 9.8%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 390px;
+    width: 310px;
     height: 300px;
-    border-radius: 5%;
+    border-radius: 3%;
+    background-color: #000;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: space;
+    color: white;
+    transition: 400ms;
+    cursor: pointer;
+}
+
+.cardtop {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 310px;
+    height: 300px;
+    border-radius: 3%;
     background-color: #000;
     background-size: 100%;
     background-position: center;
@@ -275,12 +293,12 @@ body {
     margin-left: 9.8%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 390px;
+    width: 310px;
     height: 300px;
     border-radius: 5%;
     background-image: url(/img/romantic.jpg);
     background-color: #000;
-    background-size: 300%;
+    background-size: 400%;
     background-position-y: -350px;
     background-repeat: no-repeat;
     color: white;
@@ -300,7 +318,7 @@ body {
     margin-left: 9.8%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
-    width: 390px;
+    width: 310px;
     height: 300px;
     border-radius: 5%;
     background-image: url(/img/comic.jpeg);
@@ -392,13 +410,17 @@ footer {
     background-color: var(--nav-color);
     padding: 5px;
     border-radius: 5px;
-    max-width: 310px;
+    max-width: 270px;
 }
 
 .textanimeh3 {
-    display: block;
+    display: inline-block;
+    height: 20px;
+    max-width: 280px;
     position: absolute;
-    bottom: auto;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     margin-left: 10px;
     opacity: 1;
     font-size: 15px;
@@ -469,6 +491,154 @@ footer {
     align-items: center;
     vertical-align: middle;
     color: rgb(0, 0, 0);
+}
+
+.topanime {
+    display: grid;
+    margin-top: 5%;
+    text-align: center;
+    vertical-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 2em;
+}
+
+.grid-table {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: start;
+}
+
+.error {
+    display: grid;
+    place-items: center;
+    align-items: center;
+    color: var(--black-color);
+    height: 300px;
+    text-align: center;
+}
+
+.errortimer {
+    display: grid;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.scene {
+    position: fixed;
+    background: #ed4e51;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    transition: 500ms;
+}
+
+.cube-wrapper {
+    transform-style: preserve-3d;
+    animation: bouncing 2s infinite;
+    transition: 2s;
+}
+
+.cube {
+    transform-style: preserve-3d;
+    transform: rotateX(45deg) rotateZ(45deg);
+    animation: rotation 2s infinite;
+}
+
+.cube-faces {
+    transform-style: preserve-3d;
+    height: 80px;
+    width: 80px;
+    position: relative;
+    transform-origin: 0 0;
+    transform: translateX(0) translateY(0) translateZ(-40px);
+}
+
+.cube-face {
+    position: absolute;
+    inset: 0;
+    background: #110d31ff;
+    border: solid 1px #ff8484ff;
+}
+
+.cube-face.shadow {
+    transform: translateZ(-80px);
+    animation: bouncing-shadow 2s infinite;
+}
+
+.cube-face.top {
+    transform: translateZ(80px);
+}
+
+.cube-face.front {
+    transform-origin: 0 50%;
+    transform: rotateY(-90deg);
+}
+
+.cube-face.back {
+    transform-origin: 0 50%;
+    transform: rotateY(-90deg) translateZ(-80px);
+}
+
+.cube-face.right {
+    transform-origin: 50% 0;
+    transform: rotateX(-90deg) translateY(-80px);
+}
+
+.cube-face.left {
+    transform-origin: 50% 0;
+    transform: rotateX(-90deg) translateY(-80px) translateZ(80px);
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotateX(45deg) rotateY(0) rotateZ(45deg);
+        animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+    }
+    50% {
+        transform: rotateX(45deg) rotateY(0) rotateZ(225deg);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+    }
+    100% {
+        transform: rotateX(45deg) rotateY(0) rotateZ(405deg);
+        animation-timing-function: cubic-bezier(0.17, 0.84, 0.44, 1);
+    }
+}
+
+@keyframes bouncing {
+    0% {
+        transform: translateY(-40px);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+    }
+    45% {
+        transform: translateY(40px);
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    100% {
+        transform: translateY(-40px);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+    }
+}
+
+@keyframes bouncing-shadow {
+    0% {
+        transform: translateZ(-80px) scale(1.3);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+        opacity: 0.05;
+    }
+    45% {
+        transform: translateZ(0);
+        animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translateZ(-80px) scale(1.3);
+        animation-timing-function: cubic-bezier(0.76, 0.05, 0.86, 0.06);
+        opacity: 0.05;
+    }
 }
 
 @media (max-width: 768px) {

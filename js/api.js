@@ -1,76 +1,80 @@
-const cachedData = localStorage.getItem('animecache');
-const apiUrl = "http://localhost:3000/anime/gogoanime/info/spy-x-family";
-const apiUrl2 = "http://localhost:3000/anime/gogoanime/info/horimiya"
-const apiUrl3 = "http://localhost:3000/anime/gogoanime/info/nierautomata-ver1-1a"
+window.addEventListener("load", async function() {
+    let sceneElement = document.querySelector(".scene");
+    let cube = document.querySelector(".cube");
+    let container = document.querySelector(".container");
+    container.style.zIndex = "99999";
 
-if (cachedData) {
-    const animelist = JSON.parse(cachedData);
-    const title = animelist.title;
-    const image = animelist.image;
-    const animebackground = document.getElementById("animetopimage");
-    const animeTitle = document.getElementById("animetoptext");
-    animeTitle.textContent = title;
-    animebackground.style.backgroundImage = `url(${image})`;
+    const hasDataInCache = await fetchDataAndUI();
 
-    if (animelist.apiUrl !== apiUrl) {
-        fetchData(apiUrl, "animetopimage", "animetoptext", 'animecache');
+    cube.style.opacity = "0";
+    sceneElement.style.opacity = "0";
+
+    setTimeout(() => {
+        sceneElement.style.zIndex = "0";
+    }, 1000);
+
+    function hideScene() {
+        sceneElement.style.display = "none";
     }
 
-    const cachedData2 = localStorage.getItem('animecache2');
-    if (cachedData2) {
-        const animelist2 = JSON.parse(cachedData2);
-        const title2 = animelist2.title;
-        const image2 = animelist2.image;
-        const animebackground2 = document.getElementById("animetopimage2");
-        const animeTitle2 = document.getElementById("animetoptext2");
-        animeTitle2.textContent = title2;
-        animebackground2.style.backgroundImage = `url(${image2})`;
-
-        if (animelist2.apiUrl !== apiUrl2) {
-            fetchData(apiUrl2, "animetopimage2", "animetoptext2", 'animecache2');
-        }
+    if (hasDataInCache) {
+        console.log("cached")
     } else {
-        fetchData(apiUrl2, "animetopimage2", "animetoptext2", 'animecache2');
+        sceneElement.addEventListener("transitionend", hideScene);
     }
-} else {
-    fetchData(apiUrl, "animetopimage", "animetoptext", 'animecache');
-    fetchData(apiUrl2, "animetopimage2", "animetoptext2", 'animecache2');
-    fetchData(apiUrl3, "continuewatchTitle", "continuewatchEpisodes", 'animecache3');
-}
-const cachedData3 = localStorage.getItem('animecache3');
-if (cachedData3) {
-    const animelist3 = JSON.parse(cachedData3);
-    const title3 = animelist3.title;
-    const image3 = animelist3.image;
-    const totalepisodes = animelist3.totalEpisodes;
-    const continuewatchTitle = document.getElementById("continuewatchTitle");
-    const continuewatchimage = document.getElementById("continuewatchimage");
-    const continuewatchEpisodes = document.getElementById("continuewatchEpisodes");
-    continuewatchTitle.textContent = title3;
-    continuewatchEpisodes.textContent = `Количество серий: ${totalepisodes}`;
-    continuewatchimage.style.backgroundImage = `url(${image3})`;
+});
 
-    if (animelist3.apiUrl !== apiUrl3) {
-        fetchData(apiUrl3, "continuewatchimage", "continuewatchTitle", "continuewatchEpisodes", 'animecache3');
-    }
-} else {
-    fetchData(apiUrl3, "continuewatchimage", "continuewatchTitle", "continuewatchEpisodes", 'animecache3');
+
+async function fetchDataAndUI() {
+    const apiUrl1 = "http://localhost:3000/anime/gogoanime/info/spy-x-family";
+    const apiUrl2 = "http://localhost:3000/anime/gogoanime/info/horimiya";
+    const apiUrl3 = "http://localhost:3000/anime/gogoanime/info/nierautomata-ver1-1a";
+    const animeData = [
+        { apiUrl: apiUrl1, cacheKey: 'animecache', imageId: '#animetopimage', textId: '#animetoptext' },
+        { apiUrl: apiUrl2, cacheKey: 'animecache2', imageId: '#animetopimage2', textId: '#animetoptext2' },
+        { apiUrl: apiUrl3, cacheKey: 'animecache3', imageId: '#continuewatchimage', textId: '#continuewatchTitle', textId2: '#continuewatchEpisodes' }
+    ];
+
+    const promises = animeData.map(data => fetchData(data));
+
+    const results = await Promise.all(promises);
+
+    const hasDataInCache = results.some(result => result);
+
+    return hasDataInCache;
 }
 
-function fetchData(apiUrl, imageId, textId, textid2, cacheKey) {
-    fetch(apiUrl)
-        .then((response) => response.json())
-        .then((animelist) => {
-            const title = animelist.title;
-            const image = animelist.image;
-            const totalepisodes = animelist.totalEpisodes;
-            const animebackground = document.getElementById(imageId);
-            const animeTitle = document.getElementById(textId);
-            const animeEpisodes = document.getElementById(textid2);
-            animeTitle.textContent = title;
-            animeEpisodes.textContent = `Количество серий: ${totalepisodes}`;
-            animebackground.style.backgroundImage = `url(${image})`;
+async function fetchData({ apiUrl, imageId, textId, textId2, cacheKey }) {
+    const cachedData = localStorage.getItem(cacheKey);
+    if (cachedData) {
+        const animelist = JSON.parse(cachedData);
+        updateUI(imageId, textId, textId2, animelist);
+        console.log("Данные загружены из кеша.");
+        return true;
+    }
 
-            localStorage.setItem(cacheKey, JSON.stringify({ apiUrl, ...animelist }));
-        });
+    try {
+        const response = await fetch(apiUrl);
+        const animelist = await response.json();
+
+        updateUI(imageId, textId, textId2, animelist);
+        localStorage.setItem(cacheKey, JSON.stringify({ apiUrl, ...animelist }));
+        console.log("Аниме выгружено");
+    } catch (error) {
+        console.error("Ошибка при загрузке данных:", error);
+    }
+
+    return false;
+}
+
+function updateUI(imageId, textId, textId2, { title, image, totalEpisodes }) {
+    const animeBackground = document.querySelector(imageId);
+    const animeTitle = document.querySelector(textId);
+    animeTitle.textContent = title;
+    animeBackground.style.backgroundImage = `url(${image})`;
+
+    if (textId2) {
+        const animeEpisodes = document.querySelector(textId2);
+        animeEpisodes.textContent = `Количество серий: ${totalEpisodes}`;
+    }
 }

@@ -8,14 +8,30 @@
     <link rel="stylesheet" href="/css/style.css">
     <script defer src="/js/script.js"></script>
     <script defer src="/js/api.js"></script>
-    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-    <title>Site</title>
+    <title>Anime World</title>
 </head>
 
 <body>
+    <div class="scene">
+        <div class="cube-wrapper">
+            <div class="cube">
+                <div class="cube-faces">
+                    <div class="cube-face shadow"></div>
+                    <div class="cube-face bottom"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face front"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <nav class="navbar">
             <div class="navbar-left">
@@ -29,7 +45,7 @@
                     <a class="nav-link" href="#">Catalog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Top - 100</a>
+                    <a class="nav-link" href="./page/top-10.html">Top - 10</a>
                 </li>
                 <li class="nav-item search">
                     <ion-icon class="nav-link" id="search" name="search" aria-placeholder="Поиск"></ion-icon>
@@ -78,10 +94,10 @@
                 </h1>
             </div>
             <div class="ratedanimeblock">
-                <div class="yournamec" id="animetopimage">
+                <div class="card" id="animetopimage">
                     <h3 class="textanimeh3" id="animetoptext"></h3>
                 </div>
-                <div class="violetc" id="animetopimage2">
+                <div class="card" id="animetopimage2">
                     <h3 class="textanimeh3" id="animetoptext2"></h3>
                 </div>
             </div>
@@ -103,42 +119,42 @@
                 </div>
             </div>
         </div>
+
     </div>
-    <footer>
-
-        <div class="row">
-
-
-
-            <ul class="social-icons">
-
-
-                <a href="#">
-                    <ion-icon name="logo-vk"></ion-icon>
-                </a>
-
-                <a href="#">
-                    <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-
-                <a href="#">
-                    <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-
-                <a href="#">
-                    <ion-icon name="logo-discord"></ion-icon>
-                </a>
-
-            </ul>
-
-
-
-        </div>
-
-        <p class="copyright">© 2023 All Rights Reserved</p>
-
-    </footer>
 </body>
+<footer>
 
+    <div class="row">
+
+
+
+        <ul class="social-icons">
+
+
+            <a href="#">
+                <ion-icon name="logo-vk"></ion-icon>
+            </a>
+
+            <a href="#">
+                <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+
+            <a href="#">
+                <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+
+            <a href="#">
+                <ion-icon name="logo-discord"></ion-icon>
+            </a>
+
+        </ul>
+
+
+
+    </div>
+
+    <p class="copyright">© 2023 All Rights Reserved</p>
+
+</footer>
 
 </html>
