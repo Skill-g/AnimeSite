@@ -5,6 +5,7 @@ window.addEventListener("load", async function() {
     container.style.zIndex = "99999";
 
     const animelist = await fetchData();
+    let currentPage = parseInt(localStorage.getItem('currentPage')) || 1;
 
     cube.style.opacity = "0";
     sceneElement.style.opacity = "0";
@@ -16,6 +17,33 @@ window.addEventListener("load", async function() {
     }
 
     sceneElement.addEventListener("transitionend", hideScene);
+    let maxPages = 100;
+
+    const updatePage = async(newPage) => {
+        currentPage = newPage;
+        const url = `http://localhost:3000/anime/gogoanime/top-airing?page=${currentPage}`;
+
+        const response = await fetch(url);
+        const animelist = await response.json();
+        localStorage.setItem('topData', JSON.stringify(animelist));
+        displayData(animelist);
+
+        localStorage.setItem('currentPage', currentPage);
+        document.getElementById('currentPage').textContent = currentPage;
+    };
+
+    document.getElementById('prevPage').addEventListener('click', () => {
+        if (currentPage > 1) {
+            updatePage(currentPage - 1);
+        }
+    });
+
+    document.getElementById('nextPage').addEventListener('click', () => {
+        if (currentPage < maxPages) {
+            updatePage(currentPage + 1);
+        }
+    });
+    document.getElementById('currentPage').textContent = currentPage;
 });
 
 const fetchData = async() => {
@@ -25,9 +53,11 @@ const fetchData = async() => {
             const animelist = JSON.parse(data);
             return animelist;
         } else {
-            const response = await fetch('http://localhost:3000/anime/gogoanime/top-airing');
+            const url = `http://localhost:3000/anime/gogoanime/top-airing`;
+            const response = await fetch(url);
             const animelist = await response.json();
             localStorage.setItem('topData', JSON.stringify(animelist));
+            console.log(animelist.totalPages);
             return animelist;
         }
     } catch (error) {
@@ -36,11 +66,16 @@ const fetchData = async() => {
 };
 
 const displayData = (animelist) => {
-    console.log(animelist);
     const { results } = animelist;
+
+    const oldBlock = document.querySelector('.block');
+    if (oldBlock) {
+        oldBlock.remove();
+    }
 
     const container = document.createElement('div');
     const block = document.createElement('div');
+    const pog = document.querySelector('.pagination')
     block.className = 'block';
     container.className = 'grid-table';
 
@@ -62,12 +97,13 @@ const displayData = (animelist) => {
     }
 
     block.appendChild(container);
-
     const footer = document.querySelector('footer');
     if (footer) {
         footer.parentNode.insertBefore(block, footer);
+        footer.parentNode.insertBefore(pog, footer);
     } else {
         document.body.appendChild(block);
+        document.body.appendChild(pog);
     }
 
     setTimeout(() => {

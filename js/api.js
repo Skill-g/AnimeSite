@@ -18,7 +18,7 @@ window.addEventListener("load", async function() {
     }
 
     if (hasDataInCache) {
-        console.log("cached")
+        hideScene();
     } else {
         sceneElement.addEventListener("transitionend", hideScene);
     }

@@ -19,6 +19,47 @@ body {
     margin: 0 auto;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btnp {
+    display: flex;
+    justify-content: center;
+}
+
+.button-pagination {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #ed4e51;
+    color: white;
+    border: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.current-page {
+    display: flex;
+    justify-content: center;
+    background-color: #ed4e51;
+    color: white;
+    border: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+}
+
+.max-pages {
+    background-color: #ed4e51;
+    color: white;
+    border: white;
+    border-radius: 5px;
+    padding: 10px;
+    margin-left: 5px;
+}
+
 .navbar {
     display: flex;
     justify-content: center;
@@ -192,6 +233,7 @@ body {
     white-space: nowrap;
     margin-top: -200px;
     right: 0;
+    cursor: default;
 }
 
 .continue {
@@ -495,7 +537,7 @@ footer {
 
 .topanime {
     display: grid;
-    margin-top: 5%;
+    margin-top: 2%;
     text-align: center;
     vertical-align: center;
     color: rgb(0, 0, 0);
@@ -505,8 +547,7 @@ footer {
 .grid-table {
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: start;
+    justify-content: center;
 }
 
 .error {
@@ -642,6 +683,9 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .cardtop {
+        margin-top: 5%;
+    }
     .column {
         margin: 0.4rem 0;
         width: 100%;
